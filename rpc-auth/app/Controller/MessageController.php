@@ -28,9 +28,40 @@ class MessageController extends AbstractController
     public function create()
     {
         $params = [
-            'index' => 'xp_index',
-            'type'  => 'xp_type',
-            'id'    => 'xp_id',
+            'index' => 'xtp_index',
+            'body' => [
+                'settings' => [
+                    'number_of_shards' => 3,
+                    'number_of_replicas' => 2
+                ],
+                'mappings' => [
+                    'properties' => [
+                        'name' => [
+                            'type' => 'text'
+                        ],
+                        'age' => [
+                            'type' => 'integer'
+                        ],
+                        'desc' => [
+                            'type' => 'text',
+                            'analyzer' => 'ik_max_word'
+                        ],
+                    ]
+                ]
+            ]
+        ];
+        return $this->es->client->indices()->create($params);
+    }
+
+    /**
+     * @RequestMapping(path="/es/index")
+     */
+    public function index()
+    {
+        $params = [
+            'index' => 'xtp_index',
+            //'type'  => 'xtp_type',
+            'id'    => 'xtp_id',
             'body'  => [
                 'name' => 'xtp',
                 'age'  => 24,
@@ -46,9 +77,9 @@ class MessageController extends AbstractController
     public function get()
     {
         $params = [
-            'index' => 'xp_index',
-            'type'  => 'xp_type',
-            'id'    => 'xp_id',
+            'index' => 'xtp_index',
+            //'type'  => 'xp_type',
+            'id'    => 'xtp_id',
         ];
         return $this->es->client->get($params);
     }
@@ -59,16 +90,11 @@ class MessageController extends AbstractController
     public function search()
     {
         $params = [
-            'index' => 'xp_index',
-            'type'  => 'xp_type',
+            'index' => 'xtp_index',
+            //'type'  => 'xp_type',
             'body' => [
                 'query' => [
-                    'bool' => [
-                        'must' => [
-                            ["match" => ['name' => 'xtp']],
-                            ["match" => ['age' => 24]]
-                        ],
-                    ]
+                    "match" => ['desc' => '分布式 搜索'],
                 ]
             ]
         ];
@@ -86,5 +112,14 @@ class MessageController extends AbstractController
             'id'    => 'xp_id',
         ];
         return $this->es->client->delete($params);
+    }
+
+    /**
+     * @RequestMapping(path="/es/destroy")
+     */
+    public function destroy()
+    {
+        $params = ['index' => 'xtp_index'];
+        return $this->es->client->indices()->delete($params);
     }
 }

@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/rpc-auth/test" isTestSource="true" packagePrefix="HyperfTest\" />
       <sourceFolder url="file://$MODULE_DIR$/rpc-auth/app" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/bandwidth-throttle/token-bucket" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/doctrine/annotations" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/doctrine/cache" />
@@ -51,17 +52,21 @@
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/hyperf/paginator" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/hyperf/pool" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/hyperf/process" />
+      <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/hyperf/rate-limit" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/hyperf/redis" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/hyperf/rpc" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/hyperf/rpc-client" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/hyperf/rpc-server" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/hyperf/server" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/hyperf/testing" />
+      <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/hyperf/tracer" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/hyperf/utils" />
+      <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/jcchavezs/zipkin-opentracing" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/jetbrains/phpstorm-stubs" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/laminas/laminas-mime" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/laminas/laminas-stdlib" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/laminas/laminas-zendframework-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/malkusch/lock" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/markrogoyski/math-php" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/monolog/monolog" />
@@ -69,6 +74,8 @@
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/nesbot/carbon" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/nikic/fast-route" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/opentracing/opentracing" />
+      <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/openzipkin/zipkin" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/paragonie/random_compat" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/phar-io/manifest" />
       <excludeFolder url="file://$MODULE_DIR$/rpc-auth/vendor/phar-io/version" />

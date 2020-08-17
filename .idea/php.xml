@@ -133,6 +133,13 @@
       <path value="$PROJECT_DIR$/rpc-auth/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/rpc-auth/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/rpc-auth/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/rpc-auth/vendor/hyperf/rate-limit" />
+      <path value="$PROJECT_DIR$/rpc-auth/vendor/malkusch/lock" />
+      <path value="$PROJECT_DIR$/rpc-auth/vendor/bandwidth-throttle/token-bucket" />
+      <path value="$PROJECT_DIR$/rpc-auth/vendor/openzipkin/zipkin" />
+      <path value="$PROJECT_DIR$/rpc-auth/vendor/hyperf/tracer" />
+      <path value="$PROJECT_DIR$/rpc-auth/vendor/jcchavezs/zipkin-opentracing" />
+      <path value="$PROJECT_DIR$/rpc-auth/vendor/opentracing/opentracing" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
