@@ -24,15 +24,21 @@ class UserService implements UserServiceInterface
     private $user;
 
     /**
-     * @CircuitBreaker(timeout="0.001", failCounter=1, successCounter=1, fallback="App\Service\UserService::getUserByIdSimple")
+     * @CircuitBreaker(timeout="1", failCounter=1, successCounter=1, fallback="App\Service\UserService::getUserByIdSimple")
      * @param int $id
      * @return array
      */
     public function getUserById(int $id)
     {
-        return $this->user::query()->find($id)->toArray();
+        return User::query()->find($id)->toArray();
     }
 
+    /**
+     * 服务熔断失败回调
+     *
+     * @param int $id
+     * @return array
+     */
     public function getUserByIdSimple(int $id)
     {
         return ['id' => $id, 'name' => 'xtp'];

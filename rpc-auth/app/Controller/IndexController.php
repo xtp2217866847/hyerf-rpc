@@ -13,10 +13,16 @@ namespace App\Controller;
 
 use App\Rpc\UserServiceInterface;
 use Hyperf\Di\Annotation\Inject;
-use Hyperf\HttpServer\Annotation\AutoController;
+use Hyperf\Di\Aop\ProceedingJoinPoint;
+use Hyperf\Di\Exception\Exception;
+use Hyperf\HttpServer\Annotation\Controller;
+use Hyperf\HttpServer\Annotation\Middleware;
+use Hyperf\HttpServer\Annotation\RequestMapping;
+use Hyperf\RateLimit\Annotation\RateLimit;
 
 /**
- * @AutoController()
+ * @Controller(prefix="rate-limit")
+ * @//RateLimit(limitCallback={"App\Controller\IndexController::getUserByIdLimitBack"})
  * Class IndexController
  * @package App\Controller
  */
@@ -28,8 +34,27 @@ class IndexController extends AbstractController
      */
     private $userService;
 
+    /**
+     * @RequestMapping(path="")
+     * @RateLimit(create=1, consume=1, capacity=2)
+     * @return mixed
+     */
     public function index()
     {
         return $this->userService->getUserById(1);
+    }
+
+    /**
+     * 服务限流失败回调
+     *
+     * @param float $seconds
+     * @param ProceedingJoinPoint $proceedingJoinPoint
+     * @return array
+     * @throws Exception
+     */
+    public static function getUserByIdLimitBack(float $seconds, ProceedingJoinPoint $proceedingJoinPoint)
+    {
+        return ["请1s稍后重试"];
+        return $proceedingJoinPoint->process();
     }
 }
